@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JWTDb Example</title>
+    <link rel="stylesheet" href="./josedb.css">
+</head>
+<body>
+<!--script src="https://cdn.jsdelivr.net/npm/idb-kv-store@4.5.0/idbkvstore.min.js"></script-->
+<script type="module">
+    import * as jose from 'https://cdn.jsdelivr.net/npm/jose@5.2.0/+esm';
+    import JOSEDb from './josedb.js';
+    import * as _IdbKvStore from 'https://cdn.jsdelivr.net/npm/idb-kv-store/+esm';
+    import patchIdbKv from "./patchIdbKv.js";
+    const IdbKvStore = _IdbKvStore.default;
+    patchIdbKv(IdbKvStore);
+    //const password = "b6db5b8f-bb3a-4af3-aa90-15ab285c8561";
+    //const signingKeys = await jose.generateKeyPair("ES256",{extractable:true}),
+     //   encryptionKeys = await jose.generateKeyPair("RSA-OAEP-256",{extractable:true});
+    //const josedb = await JOSEDb.create({jose,signingKeys,encryptionKeys,password,forwardTo:[new IdbKvStore('jwtdb')],issuerId:"jwtdb"});
+    const josedb = await JOSEDb.create({jose,interactive:"body",forwardTo:[{target:new IdbKvStore('jwtdb')}],issuerId:"jwtdb"});
+    //const josedb = await JOSEDb.create({jose,password,forwardTo:[new IdbKvStore('jwtdb')],issuerId:"jwtdb"});
+    console.log(example.password);
+    class Person {
+        constructor(config) {
+            Object.assign(this,config);
+        }
+    }
+    const person = new Person({name:"Simon"});
+    await example.set("test",person,{metadata:{owner:"Simon"},subject:"test"});
+    console.log(await example.get("test",{metadataKey:"^"}));
+    await example.set("test2",{test: "test"},{audience:"*",metadata:{owner:"Simon"},subject:"test",expose:["expirationTime"]});
+    console.log(await example.get("test2",{metadataKey:"^"}));
+    const otherEncryptionKeys = await jose.generateKeyPair("RSA-OAEP-256",{extractable:true});
+    await example.set("test3",{test: "test"},{audience: {jwtdb:example.encryptionKeys.publicKey,bill:otherEncryptionKeys.publicKey},metadata:{owner:"Simon"},subject:"test",expose:["expirationTime","subject","key"]});
+    console.log(await example.get("test3",{metadataKey:"^"}));
+    console.log(await example.get("test3",{as:{audience:"bill",privateKey:otherEncryptionKeys.privateKey},metadataKey:"^"}));
+   // await josedb.exportKeys({interactive:true,password,encrypt:true});
+    //await josedb.loadKeys({interactive:"body",password});
+</script>
+</body>
+</html>

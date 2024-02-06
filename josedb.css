@@ -1,0 +1,21 @@
+.josedb input:not([type="radio"]):not([type="checkbox"]):not([type="password"]):not([id="password"]) {
+    display: block;
+    margin: 10px;
+}
+
+.josedb input[type="password"] {
+    margin: 10px;
+}
+
+.josedb input[id="password"] {
+    margin: 10px;
+    width: 35ch;
+}
+
+.josedb label {
+    display: block;
+    margin-left: 10px;
+}
+.password::after {
+    content:"👁"
+}
