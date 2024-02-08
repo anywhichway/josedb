@@ -80,7 +80,20 @@ Our server and NodeJS testing will use:
 
 TypeScript like notation is used to make the documentation more precise where necessary. The actual implementation is in JavaScript NOT TypeScript.
 
+### Running Example
+
 There is an example file `example.html` in the root of the project that demonstrates the use of `JOSEDb` with `IDBKVStore`.
+
+Since `JOSEDb` uses encryption and signing, it is necessary to run the example over `https`. You can use the `http-server`,
+which is installed as a development dependency of this project, to run the example.
+
+Run the following command from the root of the project to start the server:
+
+```bash
+npm run serve
+```
+
+Then open your browser and navigate to `https://127.0.0.1:443/example.html`. Note, running over localhost will not work.
 
 ### Creating A Database
 
@@ -221,6 +234,8 @@ An error will throw if the signature is invalid or de-encryption fails due to ta
 
 # Release History (Reverse Chronological Order)
 
-0.0.1-b 2024-02-06 BETA Initial public release. Password validation to ensure length, etc. is yet to be implemented.
+2024-02-07 0.0.2-b Enhanced documentation. Added start script for `http-server`.
+
+2024-02-06 0.0.1-b BETA Initial public release. Password validation to ensure length, etc. is yet to be implemented.
 Unit tests are not yet in place. BETA will be exited when password validation is in place, test coverage exceeds 90%, 
 all tests pass and there has been community feedback.
