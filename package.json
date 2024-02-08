@@ -1,0 +1,32 @@
+{
+  "name": "josedb",
+  "version": "0.0.1-b",
+  "description": "JSON Object Signing and Encryption Database",
+  "main": "josedb.js",
+  "scripts": {
+    "serve": "http-server -p 443",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anywhichway/josedb.git"
+  },
+  "keywords": [
+    "IndexedDB",
+    "encryption",
+    "signing",
+    "JWT",
+    "JWE",
+    "key-value",
+    "kv"
+  ],
+  "author": "Simon Y. Blackwell",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/anywhichway/josedb/issues"
+  },
+  "homepage": "https://github.com/anywhichway/josedb#readme",
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
+}
