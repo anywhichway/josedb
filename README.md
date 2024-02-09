@@ -3,7 +3,7 @@ JSON Object Signing and Encryption Database
 
 ## Introduction
 
-`JOSEDb` leverages [JSON Object Signing and Encryption](https://jose.readthedocs.io/en/latest/) (JOSE) standards and to 
+`JOSEDb` leverages [JSON Object Signing and Encryption](https://jose.readthedocs.io/en/latest/) (JOSE) standards to 
 provide a secure and flexible encrypted and signed kev-value store for JSON objects.
 
 By default, all JSON values stored via `JOSEDb` are the claims on JWE's and JWTs. They are encrypted and signed with the 
