@@ -31,7 +31,7 @@ If constructors are passed to a `JOSEDb` when it is created, then the database w
 same objects that are saved. The database will also "learn" constructors at runtime and will be able to return instances 
 of objects that were saved before the constructor was passed to the database so long as the database is not shutdown.
 
-Finally, `JOSEDb` provides metadata mechanism to store additional information about JSON objects on any key a developer 
+Finally, `JOSEDb` provides a metadata mechanism to store additional information about JSON objects on any key a developer 
 may choose.
 
 ## Installation
@@ -93,7 +93,7 @@ Run the following command from the root of the project to start the server:
 npm run serve
 ```
 
-Then open your browser and navigate to `https://127.0.0.1:443/example.html`. Note, running over localhost will not work.
+Then open your browser and navigate to `http://127.0.0.1:443/example.html`. Note, running over localhost will not work.
 
 ### Creating A Database
 
@@ -118,7 +118,7 @@ If you do not pass anything and set `interactive` to a CSS selector, then the us
 keys from a local file (perhaps a thumbdrive). Keys can be exported as a JSON file containing PEM keys or as a JSON file
 containing `JOSE` encrypted keys.
 
-By convention the database name is the same as the `issuer`. The `issuer` is required for all databases. The `issuer` is used to identify the signer of the data. 
+By convention, the database name is the same as the `issuer`. The `issuer` is required for all databases. The `issuer` is used to identify the signer of the data. 
 Most people use an email address or the first part of a three part hostname.
 
 `forwardTo` must be at least one element long and must be a KV store that supports `get`, `set`, and `remove` methods or declare a `forwardingMap`.
@@ -233,6 +233,8 @@ The metadata object may include any of the options used to create signed or encr
 An error will throw if the signature is invalid or de-encryption fails due to tampering or a bad key.
 
 # Release History (Reverse Chronological Order)
+
+2024-02-07 0.0.3-b Enhanced documentation.
 
 2024-02-07 0.0.2-b Enhanced documentation. Added start script for `http-server`.
 
