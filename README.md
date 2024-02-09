@@ -94,6 +94,7 @@ npm run serve
 ```
 
 Then open your browser and navigate to `http://127.0.0.1:443/example.html`. Note, running over localhost will not work.
+And, `http:` is correct due to a nuance of how security works in the browser with `127.0.0.1`.
 
 ### Creating A Database
 
