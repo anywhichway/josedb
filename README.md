@@ -234,7 +234,7 @@ An error will throw if the signature is invalid or de-encryption fails due to ta
 
 # Release History (Reverse Chronological Order)
 
-2024-02-07 0.0.3-b Enhanced documentation.
+2024-02-08 0.0.3-b Enhanced documentation.
 
 2024-02-07 0.0.2-b Enhanced documentation. Added start script for `http-server`.
 
